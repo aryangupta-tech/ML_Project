@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Predictive Quality Control</title>
+
+    <link rel="stylesheet"
+          href="/static/style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Predictive Quality Control</h1>
+
+        <p>
+            Manufacturing Machine Defect Detection
+        </p>
+
+        <!-- Machine Sensor Inputs -->
+
+        <div class="card">
+
+            <h2>Machine Sensor Inputs</h2>
+
+            <form id="predictionForm">
+
+                <label>Temperature (°C)</label>
+
+                <input type="number"
+                       name="temperature_c"
+                       value="70"
+                       required>
+
+                <label>Vibration (mm/s)</label>
+
+                <input type="number"
+                       name="vibration_mm_s"
+                       value="2"
+                       required>
+
+                <label>Spindle Speed (RPM)</label>
+
+                <input type="number"
+                       name="spindle_speed_rpm"
+                       value="1500"
+                       required>
+
+                <label>Pressure (bar)</label>
+
+                <input type="number"
+                       name="pressure_bar"
+                       value="6"
+                       required>
+
+                <label>Operating Hours</label>
+
+                <input type="number"
+                       name="operating_hours"
+                       value="3"
+                       required>
+
+                <label>Power Consumption (kW)</label>
+
+                <input type="number"
+                       name="power_consumption_kw"
+                       value="7"
+                       required>
+
+                <button type="submit">
+                    Analyze Machine
+                </button>
+
+                <button type="reset" class="reset-btn">
+                    Reset
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- Prediction Result -->
+
+        <div class="card result">
+
+            <h2>Prediction Result</h2>
+
+            <h3 id="prediction">
+                Waiting for input...
+            </h3>
+
+            <p id="confidence"></p>
+
+            <p id="status"></p>
+
+            <!-- Confidence Progress Bar -->
+
+            <div id="confidenceBarContainer">
+
+                <div id="confidenceBar"></div>
+
+            </div>
+
+            <!-- Prediction Timestamp -->
+
+            <p id="timestamp"></p>
+
+            <!-- Top 3 Class Probabilities -->
+
+            <div id="probabilities"></div>
+
+        </div>
+
+
+        <!-- Model Performance -->
+
+        <div class="card">
+
+            <h2>Model Performance</h2>
+
+            <p id="accuracy">
+                Accuracy: Loading...
+            </p>
+
+            <p id="precision">
+                Precision: Loading...
+            </p>
+
+            <p id="recall">
+                Recall: Loading...
+            </p>
+
+            <p id="f1">
+                F1 Score: Loading...
+            </p>
+
+        </div>
+
+    </div>
+
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>

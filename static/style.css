@@ -1,0 +1,324 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+    --bg: #0c0f15;
+    --panel: #151a23;
+    --panel-light: #1c2330;
+    --border: #30394a;
+
+    --text: #e8edf5;
+    --muted: #8b96a8;
+
+    --accent: #818cf8;
+    --accent-dark: #6366c9;
+    --blue: #93b4ff;
+
+    --success: #7dd3b0;
+    --danger: #f08080;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 22px;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% -15%,
+            rgba(99, 102, 201, 0.13),
+            transparent 45%
+        ),
+        #0c0f15;
+
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+}
+
+.container {
+    max-width: 1050px;
+    margin: auto;
+}
+
+/* Header */
+
+h1 {
+    text-align: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(30px, 4vw, 40px);
+    letter-spacing: -1.3px;
+    margin-bottom: 9px;
+
+    background: linear-gradient(
+        90deg,
+        #f1f5f9,
+        #a5b4fc
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.container > p {
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 38px;
+    letter-spacing: 0.3px;
+}
+
+/* Cards */
+
+.card {
+    background: linear-gradient(
+        145deg,
+        #191f2a,
+        #141922
+    );
+
+    border: 1px solid var(--border);
+    padding: 28px;
+    margin-top: 23px;
+    border-radius: 13px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+
+    transition: border-color 0.25s, transform 0.25s;
+}
+
+.card:hover {
+    border-color: #515b7b;
+    transform: translateY(-2px);
+}
+
+h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 19px;
+    color: #a5b4fc;
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+
+/* Input Form */
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 22px;
+}
+
+label {
+    display: block;
+    color: #cbd5e1;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+input {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    padding: 13px;
+
+    background: #10151e;
+    border: 1px solid #343e50;
+    border-radius: 7px;
+
+    color: #f1f5f9;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.12);
+}
+
+input:hover {
+    border-color: #515e76;
+}
+
+/* Buttons */
+
+button {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: 15px;
+    padding: 14px;
+
+    background: linear-gradient(
+        100deg,
+        #6366c9,
+        #818cf8
+    );
+
+    border: 1px solid #8589e7;
+    border-radius: 7px;
+
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 22px rgba(99, 102, 201, 0.25);
+}
+
+button:active {
+    transform: scale(0.99);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Reset Button */
+
+.reset-btn {
+    background: #303744;
+    border-color: #454f61;
+    color: #dce3ef;
+}
+
+.reset-btn:hover {
+    background: #3c4657;
+    box-shadow: none;
+}
+
+/* Prediction Result */
+
+.result {
+    line-height: 1.8;
+}
+
+#prediction {
+    display: inline-block;
+    color: #a5b4fc;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+#confidence {
+    color: #a5b4fc;
+    font-weight: 600;
+}
+
+#status {
+    color: #cbd5e1;
+    font-size: 13px;
+}
+
+/* Probability Results */
+
+#probabilities {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+
+    color: #cbd5e1;
+    font-size: 13px;
+}
+
+#probabilities h3 {
+    color: #a5b4fc;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+}
+
+#probabilities p {
+    padding: 10px 12px;
+    background: #202735;
+    border: 1px solid #30394a;
+    border-radius: 7px;
+    margin: 8px 0;
+}
+
+/* Confidence Progress Bar */
+
+#confidenceBarContainer {
+    width: 100%;
+    height: 9px;
+    background: #303744;
+    border: 1px solid #414b5c;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 12px 0;
+}
+
+#confidenceBar {
+    width: 0%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #5554a8,
+        #818cf8
+    );
+
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+/* Timestamp */
+
+#timestamp {
+    font-size: 12px;
+    color: #8b96a8;
+}
+
+/* Model Metrics */
+
+#accuracy,
+#precision,
+#recall,
+#f1 {
+    padding: 14px;
+    background: #10151e;
+    border: 1px solid #30394a;
+    border-radius: 8px;
+
+    color: #a5b4fc;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 22px 13px;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
